@@ -1,0 +1,273 @@
+:root { 
+  --backgroundWhite: #FAEEE7;
+  --headline: #33272a;
+  --paragraph: #594a4e;
+  --button: #ff8ba7;
+
+}
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+  background-color: var(--backgroundWhite);
+  padding-top: 500px;
+  }
+
+
+  .container{
+    max-width: 1280;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color:var(--backgroundWhite);
+    padding: 16px 32px;
+    /* border-bottom: 3px solid blueviolet; */
+  }
+
+  h1{
+    font-size: 30px;
+    color: var(--headline);
+  }
+  h1:hover{
+    color:#ff8ba7;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  .box{
+    display: flex;
+  }
+
+  .hamburger{
+    display: block;
+    position: relative;
+    z-index: 1;
+    
+    user-select: none;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .hamburger span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background-color: darkkhaki;
+    border-radius: 6px;
+    z-index: 1;
+
+    transform-origin: 0 0 ;
+    transition: 0.4s;
+  }
+  .hamburger:hover span:nth-child(2){
+      transform: translateX(10px);
+      background: darkolivegreen;
+  }
+  .hamburger.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+  }
+  .hamburger.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  .hamburger.is-active span:nth-child(3){
+    transform: translate(-3px, 3px) rotate(-45deg);
+  }
+ 
+
+  .hamburger.is-active:hover span{
+    background-color: darkslateblue;
+  }
+
+  .menu{
+    display: none;
+    flex: 1 1 0%;
+    justify-content: flex-end;
+    margin: 0 -16px;
+  }
+
+  .menu a{
+    color: green;
+    margin: 0 16px;
+
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 8px 16px;
+    border-radius: 99px;
+  }
+
+  .menu a.is-active, .menu a:hover{
+    background-color: lightgreen ;
+     
+  } 
+
+  @media (min-width:768px){
+    .hamburger{
+      display: none;
+    }
+    .menu{
+      display: flex;
+    }
+    
+  }
+
+  /* about section */
+  @import url(//fonts.cdnfonts.com/css/gotham-rounded-medium);
+  @import url(//fonts.cdnfonts.com/css/gotham-rounded); /* with several medium wght */
+  
+  main {
+    margin: auto;
+  }
+  
+  body, html {
+    height: 100%;
+    display: grid;
+    padding: 34px;
+    text-align: center;
+    color: var(--headline);
+    
+    font-size: 26px;
+
+    line-height: 150%;
+  }
+  .publicSans{
+    font-family: 'Public Sans', sans-serif;
+
+  }
+  
+  img, #float {
+    float: left;
+    border-radius: 10%;
+  }
+  
+  #float {
+    margin-left: 80px;
+    margin-top: 40px;
+    text-align: left;
+    max-inline-size: 620px;
+  }
+  
+  b {
+    font-family: 'Gotham Rounded';
+  }
+
+  .rectangle {
+    margin-top: 10px;
+    height: 5px;
+    width: auto;
+    background-color: var(--button);
+  }
+
+  @media all and (max-width:980px) {
+    img{
+      text-align:center;
+      border-radius: 30%;
+    }
+    
+}
+
+/* flex box code */
+
+
+/* Box sizing rules */
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.65;
+  padding: 2rem;
+  background-color: #f5f2f7;
+  color: #29344B;
+}
+
+/***
+ 🟣 SmolCSS Snippet Styles
+ */
+
+.smol-flexbox-grid {
+  --min: 10ch;
+  --gap: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.smol-flexbox-grid > * {
+  flex: 1 1 var(--min);
+}
+
+/* Additional demo styles from SmolCSS.dev
+   Not all styles may be needed for this pen */
+body > ul {
+  list-style: none;
+  margin: 0;
+
+  &:not([data-padding-unset]) {
+    padding: 0;
+  }
+}
+
+[class*="smol"]:not([data-component]) > *:not([data-unstyled]) {
+  display: grid;
+  padding: 1rem;
+  background-color: #E0D4F6;
+  color: #675883;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.15em;
+  border: 1px dashed;
+
+  &:not([data-text]) {
+    place-content: center;
+  }
+
+  &[data-text] {
+    font-size: 1.15rem;
+    text-align: left;
+  }
+}
+
+[data-container-style] {
+  outline: 2px dotted #29344B;
+}
+
+
