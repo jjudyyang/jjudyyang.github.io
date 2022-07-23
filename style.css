@@ -13,7 +13,7 @@
 
 body {
   background-color: var(--backgroundWhite);
-  padding-top: 100px;
+  padding-top: 500px;
   }
 
 
@@ -36,7 +36,7 @@ body {
   }
 
   h1{
-    font-size: 40px;
+    font-size: 30px;
     color: var(--headline);
   }
   h1:hover{
@@ -118,7 +118,7 @@ body {
   }
 
   .menu a.is-active, .menu a:hover{
-    background-color: #ff8ba7 ;
+    background-color: lightgreen ;
      
   } 
 
@@ -131,5 +131,144 @@ body {
     }
     
   }
+
+  /* about section */
+  @import url(//fonts.cdnfonts.com/css/gotham-rounded-medium);
+  @import url(//fonts.cdnfonts.com/css/gotham-rounded); /* with several medium wght */
+  
+  main {
+    margin: auto;
+  }
+  
+  body, html {
+    height: 100%;
+    display: grid;
+    padding: 34px;
+    text-align: center;
+    color: var(--headline);
+    
+    font-size: 26px;
+
+    line-height: 150%;
+  }
+  .publicSans{
+    font-family: 'Public Sans', sans-serif;
+
+  }
+  
+  img, #float {
+    float: left;
+    border-radius: 10%;
+  }
+  
+  #float {
+    margin-left: 80px;
+    margin-top: 40px;
+    text-align: left;
+    max-inline-size: 620px;
+  }
+  
+  b {
+    font-family: 'Gotham Rounded';
+  }
+
+  .rectangle {
+    margin-top: 10px;
+    height: 5px;
+    width: auto;
+    background-color: var(--button);
+  }
+
+  @media all and (max-width:980px) {
+    img{
+      text-align:center;
+      border-radius: 30%;
+    }
+    
+}
+
+/* flex box code */
+
+
+/* Box sizing rules */
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.65;
+  padding: 2rem;
+  background-color: #f5f2f7;
+  color: #29344B;
+}
+
+/***
+ 🟣 SmolCSS Snippet Styles
+ */
+
+.smol-flexbox-grid {
+  --min: 10ch;
+  --gap: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.smol-flexbox-grid > * {
+  flex: 1 1 var(--min);
+}
+
+
+/* Additional demo styles from SmolCSS.dev
+   Not all styles may be needed for this pen */
+body > ul {
+  list-style: none;
+  margin: 0;
+
+  &:not([data-padding-unset]) {
+    padding: 0;
+  }
+}
+
+[class*="smol"]:not([data-component]) > *:not([data-unstyled]) {
+  display: grid;
+  padding: 1rem;
+  background-color: #E0D4F6;
+  color: #675883;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.15em;
+  border: 1px dashed;
+
+  &:not([data-text]) {
+    place-content: center;
+  }
+
+  &[data-text] {
+    font-size: 1.15rem;
+    text-align: left;
+  }
+}
+
+[data-container-style] {
+  outline: 2px dotted #29344B;
+}
 
 
