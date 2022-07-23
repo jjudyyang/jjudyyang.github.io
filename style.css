@@ -24,6 +24,14 @@ body {
     align-items: center;
     justify-content: space-between;
   }
+
+  .footerContainer{
+    max-width: auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   nav{
     position: fixed;
     top: 0;
@@ -142,7 +150,7 @@ body {
   
   body, html {
     height: 100%;
-    display: grid;
+    /* display: grid; */
     padding: 34px;
     text-align: center;
     color: var(--headline);
@@ -191,11 +199,6 @@ body {
 
 
 /* Box sizing rules */
-// *,
-// *::before,
-// *::after {
-//   box-sizing: border-box;
-// }
 
 /* Remove default margin */
 body,
@@ -217,10 +220,6 @@ body {
   color: #29344B;
 }
 
-/***
- 🟣 SmolCSS Snippet Styles
- */
-
 .smol-flexbox-grid {
   --min: 10ch;
   --gap: 1rem;
@@ -233,7 +232,6 @@ body {
 .smol-flexbox-grid > * {
   flex: 1 1 var(--min);
 }
-
 
 /* Additional demo styles from SmolCSS.dev
    Not all styles may be needed for this pen */
@@ -248,7 +246,7 @@ body > ul {
 
 [class*="smol"]:not([data-component]) > *:not([data-unstyled]) {
   display: grid;
-  padding: 1rem;
+  padding: 2rem;
   background-color: #E0D4F6;
   color: #675883;
   font-size: clamp(1.5rem, 4vw, 2rem);
