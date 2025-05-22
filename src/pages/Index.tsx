@@ -25,21 +25,21 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-full">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 lg:py-32 container px-4 md:px-6 bg-soft-beige">
+      <section className="py-16 md:py-24 lg:py-32 container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
           <h1 className="heading-xl max-w-3xl">
-            Hello 👋 I'm <span className="text-primary-red">Judy</span>
+            Hello 👋 I'm <span className="text-[#0A84FF]">Judy</span>
           </h1>
-          <p className="text-xl text-warm-grey max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             I'm a Computer Science student @ uWaterloo! Minoring in AI and Human Computer Interaction 🚀
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Button asChild className="bg-primary-red hover:bg-primary-red/90 text-cream-white">
+            <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
               <Link to="/case-studies">
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-terracotta text-terracotta hover:bg-terracotta/10">
+            <Button asChild variant="outline">
               <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </a>
@@ -49,9 +49,9 @@ const Index = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="bg-cream-white py-16 md:py-24">
+      <section className="bg-muted py-16 md:py-24">
         <div className="container px-4 md:px-6">
-          <h2 className="heading-lg text-center mb-12 text-charcoal">My Journey</h2>
+          <h2 className="heading-lg text-center mb-12">My Journey</h2>
           <div className="max-w-3xl mx-auto">
             {timelineItems.map((item, index) => (
               <div 
@@ -59,9 +59,9 @@ const Index = () => {
                 className="timeline-item"
                 style={{animationDelay: `${index * 200}ms`}}
               >
-                <div className="mb-2 text-primary-red font-bold">{item.year}</div>
-                <h3 className="text-xl font-semibold mb-1 text-charcoal">{item.title}</h3>
-                <p className="text-warm-grey">{item.description}</p>
+                <div className="mb-2 text-[#0A84FF] font-bold">{item.year}</div>
+                <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>
@@ -69,69 +69,69 @@ const Index = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-16 md:py-24 container px-4 md:px-6 bg-soft-beige">
+      <section className="py-16 md:py-24 container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="heading-lg text-charcoal">Featured Work</h2>
-          <Button asChild variant="outline" className="mt-4 md:mt-0 border-terracotta text-terracotta hover:bg-terracotta/10">
+          <h2 className="heading-lg">Featured Work</h2>
+          <Button asChild variant="outline" className="mt-4 md:mt-0">
             <Link to="/case-studies">View All Projects</Link>
           </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Project 1 - Cookify */}
-          <div className="rounded-lg border border-warm-grey/20 bg-cream-white text-charcoal shadow-sm overflow-hidden card-hover">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
             <div className="aspect-video bg-muted"></div>
             <div className="p-6">
               <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-primary-red/10 px-2 py-1 text-xs font-medium text-primary-red ring-1 ring-inset ring-primary-red/20">
+                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30">
                   Web App
                 </span>
-                <span className="inline-flex items-center rounded-md bg-terracotta/10 px-2 py-1 text-xs font-medium text-terracotta ring-1 ring-inset ring-terracotta/20">
+                <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:bg-purple-400/10 dark:text-purple-400 dark:ring-purple-400/30">
                   React
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-charcoal">Cookify</h3>
-              <p className="text-warm-grey mt-2">Spotify but for recipes - personalized cooking recommendations based on preferences</p>
-              <Button asChild variant="link" className="pl-0 mt-2 text-primary-red hover:text-primary-red/80">
+              <h3 className="text-lg font-semibold">Cookify</h3>
+              <p className="text-muted-foreground mt-2">Spotify but for recipes - personalized cooking recommendations based on preferences</p>
+              <Button asChild variant="link" className="pl-0 mt-2">
                 <Link to="/case-studies/cookify">View Project</Link>
               </Button>
             </div>
           </div>
 
           {/* Project 2 - Uni Eats */}
-          <div className="rounded-lg border border-warm-grey/20 bg-cream-white text-charcoal shadow-sm overflow-hidden card-hover">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
             <div className="aspect-video bg-muted"></div>
             <div className="p-6">
               <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-olive-mist/20 px-2 py-1 text-xs font-medium text-olive-mist ring-1 ring-inset ring-olive-mist/20 dark:bg-olive-mist/10 dark:text-olive-mist dark:ring-olive-mist/30">
+                <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30">
                   Mobile
                 </span>
-                <span className="inline-flex items-center rounded-md bg-terracotta/10 px-2 py-1 text-xs font-medium text-terracotta ring-1 ring-inset ring-terracotta/20">
+                <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-700/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30">
                   Community
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-charcoal">Uni Eats</h3>
-              <p className="text-warm-grey mt-2">Platform to split groceries in university communities, reducing food waste and expenses</p>
-              <Button asChild variant="link" className="pl-0 mt-2 text-primary-red hover:text-primary-red/80">
+              <h3 className="text-lg font-semibold">Uni Eats</h3>
+              <p className="text-muted-foreground mt-2">Platform to split groceries in university communities, reducing food waste and expenses</p>
+              <Button asChild variant="link" className="pl-0 mt-2">
                 <Link to="/case-studies/uni-eats">View Project</Link>
               </Button>
             </div>
           </div>
 
           {/* Project 3 - Develop for Good */}
-          <div className="rounded-lg border border-warm-grey/20 bg-cream-white text-charcoal shadow-sm overflow-hidden card-hover">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
             <div className="aspect-video bg-muted"></div>
             <div className="p-6">
               <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-primary-red/10 px-2 py-1 text-xs font-medium text-primary-red ring-1 ring-inset ring-primary-red/20">
+                <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700/10 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30">
                   Social Impact
                 </span>
-                <span className="inline-flex items-center rounded-md bg-olive-mist/20 px-2 py-1 text-xs font-medium text-olive-mist ring-1 ring-inset ring-olive-mist/20">
+                <span className="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-700/10 dark:bg-orange-400/10 dark:text-orange-400 dark:ring-orange-400/30">
                   Data
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-charcoal">Develop for Good</h3>
-              <p className="text-warm-grey mt-2">Monitoring corruption in electricity access applications in Benin, partnering with local utility SBEE</p>
-              <Button asChild variant="link" className="pl-0 mt-2 text-primary-red hover:text-primary-red/80">
+              <h3 className="text-lg font-semibold">Develop for Good</h3>
+              <p className="text-muted-foreground mt-2">Monitoring corruption in electricity access applications in Benin, partnering with local utility SBEE</p>
+              <Button asChild variant="link" className="pl-0 mt-2">
                 <Link to="/case-studies/develop-for-good">View Project</Link>
               </Button>
             </div>

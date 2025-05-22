@@ -1,70 +1,69 @@
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 42 43% 91%; /* Soft Beige */
-    --foreground: 37 7% 44%; /* Warm Grey */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 48 100% 99%; /* Cream White */
-    --card-foreground: 0 0% 18%; /* Charcoal */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 48 100% 99%; /* Cream White */
-    --popover-foreground: 0 0% 18%; /* Charcoal */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 5 59% 49%; /* Primary Red */
-    --primary-foreground: 48 100% 99%; /* Cream White */
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 18 58% 59%; /* Terracotta Accent */
-    --secondary-foreground: 48 100% 99%; /* Cream White */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 84 12% 66%; /* Olive Mist */
-    --muted-foreground: 37 7% 44%; /* Warm Grey */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 18 58% 59%; /* Terracotta Accent */
-    --accent-foreground: 48 100% 99%; /* Cream White */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 37 7% 44%; /* Warm Grey */
-    --input: 37 7% 44%; /* Warm Grey */
-    --ring: 5 59% 49%; /* Primary Red */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 18%; /* Charcoal */
-    --foreground: 48 100% 99%; /* Cream White */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 22%; /* Slightly lighter Charcoal */
-    --card-foreground: 48 100% 99%; /* Cream White */
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 18%; /* Charcoal */
-    --popover-foreground: 48 100% 99%; /* Cream White */
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 5 59% 49%; /* Primary Red */
-    --primary-foreground: 48 100% 99%; /* Cream White */
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 18 58% 59%; /* Terracotta Accent */
-    --secondary-foreground: 48 100% 99%; /* Cream White */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 84 12% 56%; /* Darker Olive Mist */
-    --muted-foreground: 42 43% 91%; /* Soft Beige */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 18 58% 49%; /* Darker Terracotta */
-    --accent-foreground: 48 100% 99%; /* Cream White */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 37 7% 54%; /* Lighter Warm Grey */
-    --input: 37 7% 54%; /* Lighter Warm Grey */
-    --ring: 5 59% 59%; /* Lighter Primary Red */
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -74,38 +73,34 @@
   }
 
   body {
-    @apply bg-soft-beige text-warm-grey antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-charcoal;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
 @layer components {
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-charcoal;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
   
   .heading-lg {
-    @apply text-3xl md:text-4xl font-bold text-charcoal;
+    @apply text-3xl md:text-4xl font-bold;
   }
   
   .heading-md {
-    @apply text-2xl md:text-3xl font-semibold text-charcoal;
+    @apply text-2xl md:text-3xl font-semibold;
   }
   
   .heading-sm {
-    @apply text-xl md:text-2xl font-semibold text-charcoal;
+    @apply text-xl md:text-2xl font-semibold;
   }
   
   .timeline-item {
-    @apply relative pl-8 pb-10 border-l border-warm-grey/30;
+    @apply relative pl-8 pb-10 border-l border-gray-200 dark:border-gray-700;
   }
   
   .timeline-item::before {
     content: '';
-    @apply absolute -left-[9px] top-0 h-[18px] w-[18px] bg-primary-red rounded-full;
+    @apply absolute -left-[9px] top-0 h-[18px] w-[18px] bg-[#0A84FF] rounded-full;
   }
   
   .timeline-item:last-child {
@@ -120,4 +115,3 @@
     @apply py-16 px-4 md:py-24 md:px-6 lg:px-8;
   }
 }
-
