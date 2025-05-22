@@ -7,19 +7,48 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  ResponsiveContainer
+  ResponsiveContainer,
+  PolarRadiusAxis,
+  Legend
 } from "recharts";
+import { ChartContainer } from "@/components/ui/chart";
 
-// Skills data for radar chart
+// Skills data for radar chart organized by categories - matches the image shared
 const skillsData = [
-  { subject: 'Product Strategy', A: 90 },
-  { subject: 'User Research', A: 85 },
-  { subject: 'SQL', A: 80 },
-  { subject: 'UI/UX Design', A: 75 },
-  { subject: 'SwiftUI', A: 65 },
-  { subject: 'Data Analysis', A: 85 },
-  { subject: 'Team Leadership', A: 80 },
-  { subject: 'Web Development', A: 70 },
+  // Customer Insight (Yellow section)
+  { subject: 'Voice of the Customer', area: 'Customer Insight', A: 80 },
+  { subject: 'User Experience Design', area: 'Customer Insight', A: 75 },
+  { subject: 'Fluency with Data', area: 'Customer Insight', A: 85 },
+  
+  // Product Strategy (Teal section)
+  { subject: 'Strategic Impact', area: 'Product Strategy', A: 70 },
+  { subject: 'Product Vision & Roadmapping', area: 'Product Strategy', A: 75 },
+  { subject: 'Business Outcome Ownership', area: 'Product Strategy', A: 65 },
+  
+  // Influencing People (Blue section)
+  { subject: 'Stakeholder Management', area: 'Influencing People', A: 80 },
+  { subject: 'Team Leadership', area: 'Influencing People', A: 70 },
+  { subject: 'Managing Up', area: 'Influencing People', A: 65 },
+  
+  // Product Execution (Orange section)
+  { subject: 'Feature Specification', area: 'Product Execution', A: 90 },
+  { subject: 'Product Delivery', area: 'Product Execution', A: 85 },
+  { subject: 'Quality Assurance', area: 'Product Execution', A: 80 },
+];
+
+// Color mapping for different areas
+const areaColors = {
+  'Customer Insight': '#F9D949',
+  'Product Strategy': '#5CD2C6',
+  'Influencing People': '#74C0FC',
+  'Product Execution': '#FF9F57'
+};
+
+const pmCategories = [
+  { name: 'Customer Insight', color: '#F9D949' },
+  { name: 'Product Strategy', color: '#5CD2C6' },
+  { name: 'Influencing People', color: '#74C0FC' },
+  { name: 'Product Execution', color: '#FF9F57' }
 ];
 
 const techSkills = [
@@ -54,10 +83,10 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16">
           <div className="md:col-span-3">
             <p className="text-lg mb-4">
-              I'm a product manager with a computer science background, passionate about building products that solve real problems for users while driving business growth.
+              I'm a Computer Science student at the University of Waterloo, passionate about building products that solve real problems for users while driving business growth.
             </p>
             <p className="text-lg mb-4">
-              With my technical foundation from the University of Waterloo and practical experience leading products at companies like Pepper i2 and Red Bull Aero, I bring a unique blend of technical understanding and business acumen to every project.
+              With my technical foundation and practical experience leading products at companies like Pepper i2 and Red Bull Aero, I bring a unique blend of technical understanding and business acumen to every project.
             </p>
             <p className="text-lg mb-4">
               I thrive in environments where I can collaborate with cross-functional teams to transform complex problems into elegant, user-centered solutions. My approach combines data-driven decision making with empathetic user understanding.
@@ -71,32 +100,57 @@ const About = () => {
 
           <div className="md:col-span-2">
             <div className="aspect-square bg-muted rounded-lg"></div>
-            <p className="text-sm text-muted-foreground text-center mt-2">Judy Yang, Product Manager</p>
+            <p className="text-sm text-muted-foreground text-center mt-2">Judy Yang, Computer Science Student</p>
           </div>
         </div>
 
-        {/* Skills Section */}
+        {/* Skills Section - PM Competency Wheel */}
         <section className="mb-16">
-          <h2 className="heading-md mb-6">My Skills</h2>
-
-          {/* Radar Chart */}
+          <h2 className="heading-md mb-6">My Skills Distribution</h2>
+          
+          {/* PM Competency Wheel - radar chart styled like the image */}
           <div className="bg-muted p-6 rounded-lg mb-8">
-            <h3 className="text-xl font-semibold mb-4 text-center">Skills Distribution</h3>
-            <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={skillsData}>
-                  <PolarGrid />
-                  <PolarAngleAxis dataKey="subject" />
-                  <Radar
-                    name="Skills"
-                    dataKey="A"
-                    stroke="#0A84FF"
-                    fill="#0A84FF"
-                    fillOpacity={0.3}
-                  />
-                </RadarChart>
-              </ResponsiveContainer>
+            <h3 className="text-xl font-semibold mb-4 text-center">Product Manager Competencies</h3>
+            <div className="h-[400px] md:h-[500px]">
+              <ChartContainer
+                config={{
+                  customerInsight: { color: "#F9D949" },
+                  productStrategy: { color: "#5CD2C6" },
+                  influencingPeople: { color: "#74C0FC" },
+                  productExecution: { color: "#FF9F57" }
+                }}
+              >
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart cx="50%" cy="50%" outerRadius="80%" data={skillsData}>
+                    <PolarGrid gridType="polygon" />
+                    <PolarAngleAxis dataKey="subject" tick={{ fill: '#888', fontSize: 12 }} />
+                    <PolarRadiusAxis domain={[0, 100]} axisLine={false} tick={{ fill: '#888' }} />
+                    <Radar 
+                      name="Skills" 
+                      dataKey="A" 
+                      stroke="#0A84FF" 
+                      fill="#0A84FF" 
+                      fillOpacity={0.3}
+                      animationDuration={500}
+                    />
+                    <Legend />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </ChartContainer>
             </div>
+          </div>
+
+          {/* PM Categories with Color Indicators */}
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {pmCategories.map((category) => (
+              <div key={category.name} className="flex items-center">
+                <div 
+                  className="h-3 w-3 rounded-full mr-2" 
+                  style={{ backgroundColor: category.color }}
+                ></div>
+                <span className="text-sm font-medium">{category.name}</span>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
