@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -46,11 +45,6 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-            <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          </Button>
         </nav>
 
         {/* Mobile navigation */}
@@ -71,11 +65,6 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-                <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                  Resume
-                </a>
-              </Button>
             </nav>
           </div>
         )}
