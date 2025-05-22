@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { LinkedIn, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -17,7 +17,7 @@ export function Footer() {
             aria-label="LinkedIn"
             className="text-muted-foreground hover:text-foreground"
           >
-            <LinkedIn size={20} />
+            <Linkedin size={20} />
           </a>
           <a
             href="https://github.com/judyyang"
