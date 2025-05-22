@@ -3,85 +3,91 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-// Sample projects data (this would come from Supabase in a real implementation)
+// Sample projects data with Judy's projects
 const caseStudies = [
   {
-    id: "enterprise-dashboard",
-    title: "Enterprise Dashboard Redesign",
-    description: "Increased user engagement by 45% through data-driven UX improvements",
-    tags: ["B2B SaaS", "Growth"],
+    id: "cookify",
+    title: "Cookify",
+    description: "Spotify but for recipes - personalized cooking recommendations based on preferences",
+    tags: ["Web App", "UX/UI", "AI"],
     imageUrl: "",
     tagColors: {
-      "B2B SaaS": "blue",
-      "Growth": "purple"
+      "Web App": "blue",
+      "UX/UI": "purple",
+      "AI": "yellow"
     }
   },
   {
-    id: "fitness-app",
-    title: "Fitness App Personalization",
-    description: "Implemented ML-driven workout recommendations, increasing retention by 32%",
-    tags: ["Mobile", "ML"],
+    id: "uni-eats",
+    title: "Uni Eats",
+    description: "Platform to split groceries in university communities, reducing food waste and expenses",
+    tags: ["Mobile", "Community", "Product Management"],
     imageUrl: "",
     tagColors: {
       "Mobile": "green",
-      "ML": "yellow"
+      "Community": "orange",
+      "Product Management": "blue"
     }
   },
   {
-    id: "payment-processing",
-    title: "Payment Processing Solution",
-    description: "Reduced transaction errors by 67% and improved checkout conversions by 28%",
-    tags: ["B2B SaaS", "Fintech"],
+    id: "develop-for-good",
+    title: "Develop for Good",
+    description: "Monitoring corruption in electricity access applications in Benin, partnering with local utility SBEE",
+    tags: ["Social Impact", "Data", "Product Strategy"],
     imageUrl: "",
     tagColors: {
-      "B2B SaaS": "blue",
-      "Fintech": "orange"
+      "Social Impact": "red",
+      "Data": "yellow",
+      "Product Strategy": "purple"
     }
   },
   {
-    id: "ai-chatbot",
-    title: "AI Customer Support Chatbot",
-    description: "Developed an AI-powered chatbot that resolved 78% of customer queries without human intervention",
-    tags: ["ML", "B2B SaaS"],
+    id: "photosort",
+    title: "PhotoSort",
+    description: "AI-powered tool for organizing photos of food and automating writing of Google reviews",
+    tags: ["AI", "Mobile", "Automation"],
     imageUrl: "",
     tagColors: {
-      "ML": "yellow",
-      "B2B SaaS": "blue"
-    }
-  },
-  {
-    id: "mobile-banking",
-    title: "Mobile Banking App",
-    description: "Redesigned the mobile banking experience leading to 52% increase in daily active users",
-    tags: ["Mobile", "Fintech"],
-    imageUrl: "",
-    tagColors: {
+      "AI": "yellow",
       "Mobile": "green",
-      "Fintech": "orange"
+      "Automation": "blue"
     }
   },
   {
-    id: "analytics-platform",
-    title: "Marketing Analytics Platform",
-    description: "Built a growth measurement platform used by marketing teams to improve campaign ROI by 35%",
-    tags: ["B2B SaaS", "Growth"],
+    id: "hci-project",
+    title: "Human Computer Interaction Project",
+    description: "Research and implementation of novel interfaces for human-computer interaction",
+    tags: ["UX/UI", "Research", "Prototyping"],
     imageUrl: "",
     tagColors: {
-      "B2B SaaS": "blue",
-      "Growth": "purple"
+      "UX/UI": "purple",
+      "Research": "blue",
+      "Prototyping": "green"
+    }
+  },
+  {
+    id: "podcast-team",
+    title: "UWaterloo PM Podcast",
+    description: "Leading the University of Waterloo Product Management podcast team, featuring industry experts",
+    tags: ["Product Management", "Community", "Content"],
+    imageUrl: "",
+    tagColors: {
+      "Product Management": "blue",
+      "Community": "orange",
+      "Content": "red"
     }
   }
 ];
 
 // All available tags
-const allTags = ["B2B SaaS", "Mobile", "ML", "Growth", "Fintech"];
+const allTags = ["Web App", "Mobile", "AI", "UX/UI", "Product Management", "Social Impact", "Data", "Community", "Research", "Automation", "Prototyping", "Content", "Product Strategy"];
 
 const CaseStudies = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [filteredStudies, setFilteredStudies] = useState(caseStudies);
 
   useEffect(() => {
-    document.title = "Projects | Jennifer Dryden";
+    document.title = "Projects | Judy Yang";
   }, []);
 
   useEffect(() => {
@@ -136,7 +142,7 @@ const CaseStudies = () => {
       <div className="text-center mb-12">
         <h1 className="heading-lg mb-4">Projects</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A selection of projects showcasing my technical skills and problem-solving abilities.
+          A selection of projects showcasing my technical and product management skills.
         </p>
       </div>
 

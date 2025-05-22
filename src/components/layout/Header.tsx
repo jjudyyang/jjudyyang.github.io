@@ -47,7 +47,7 @@ export function Header() {
             </Link>
           ))}
           <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-            <a href="/JenniferDryden_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </Button>
@@ -72,7 +72,7 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-                <a href="/JenniferDryden_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </Button>
