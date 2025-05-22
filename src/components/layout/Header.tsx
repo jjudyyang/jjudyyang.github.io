@@ -6,10 +6,9 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Case Studies", path: "/case-studies" },
+  { name: "Projects", path: "/case-studies" },
   { name: "About", path: "/about" },
   { name: "Blog", path: "/blog" },
-  { name: "Contact", path: "/contact" },
 ];
 
 export function Header() {
@@ -19,8 +18,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold">Judy Yang</span>
+        <Link to="/about" className="flex items-center gap-2">
+          <span className="text-xl font-bold">Jennifer Dryden</span>
         </Link>
 
         {/* Mobile menu button */}
@@ -48,7 +47,7 @@ export function Header() {
             </Link>
           ))}
           <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-            <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/JenniferDryden_Resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </Button>
@@ -73,7 +72,7 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-                <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/JenniferDryden_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </Button>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-// Sample case studies data (this would come from Supabase in a real implementation)
+// Sample projects data (this would come from Supabase in a real implementation)
 const caseStudies = [
   {
     id: "enterprise-dashboard",
@@ -81,7 +81,7 @@ const CaseStudies = () => {
   const [filteredStudies, setFilteredStudies] = useState(caseStudies);
 
   useEffect(() => {
-    document.title = "Case Studies | Judy Yang";
+    document.title = "Projects | Jennifer Dryden";
   }, []);
 
   useEffect(() => {
@@ -134,9 +134,9 @@ const CaseStudies = () => {
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
       <div className="text-center mb-12">
-        <h1 className="heading-lg mb-4">Case Studies</h1>
+        <h1 className="heading-lg mb-4">Projects</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A selection of projects showcasing my approach to product management and problem-solving.
+          A selection of projects showcasing my technical skills and problem-solving abilities.
         </p>
       </div>
 
@@ -163,7 +163,7 @@ const CaseStudies = () => {
         )}
       </div>
 
-      {/* Case Study Grid */}
+      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredStudies.map((study) => (
           <div 
@@ -185,7 +185,7 @@ const CaseStudies = () => {
               <h3 className="text-lg font-semibold">{study.title}</h3>
               <p className="text-muted-foreground mt-2">{study.description}</p>
               <Button asChild variant="link" className="pl-0 mt-2">
-                <Link to={`/case-studies/${study.id}`}>Read Case Study</Link>
+                <Link to={`/case-studies/${study.id}`}>View Project</Link>
               </Button>
             </div>
           </div>

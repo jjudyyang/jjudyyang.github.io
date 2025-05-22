@@ -7,11 +7,11 @@ export function Footer() {
     <footer className="border-t bg-background py-8">
       <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6">
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Judy Yang. All rights reserved.
+          © {new Date().getFullYear()} Jennifer Dryden. All rights reserved.
         </p>
         <div className="flex gap-4 items-center">
           <a
-            href="https://www.linkedin.com/in/judyyang"
+            href="https://www.linkedin.com/in/jenniferdryden"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -20,7 +20,7 @@ export function Footer() {
             <Linkedin size={20} />
           </a>
           <a
-            href="https://github.com/judyyang"
+            href="https://github.com/jenniferdryden"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -29,7 +29,7 @@ export function Footer() {
             <Github size={20} />
           </a>
           <a
-            href="mailto:judy.yang@example.com"
+            href="mailto:jennifer.dryden@example.com"
             aria-label="Email"
             className="text-muted-foreground hover:text-foreground"
           >
@@ -41,16 +41,13 @@ export function Footer() {
             Home
           </Link>
           <Link to="/case-studies" className="text-xs text-muted-foreground hover:text-foreground">
-            Case Studies
+            Projects
           </Link>
           <Link to="/about" className="text-xs text-muted-foreground hover:text-foreground">
             About
           </Link>
           <Link to="/blog" className="text-xs text-muted-foreground hover:text-foreground">
             Blog
-          </Link>
-          <Link to="/contact" className="text-xs text-muted-foreground hover:text-foreground">
-            Contact
           </Link>
         </nav>
       </div>
