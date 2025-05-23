@@ -161,6 +161,47 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Photos Section */}
+      <section className="py-16 md:py-24 container px-4 md:px-6">
+        <h2 className="heading-lg text-center mb-12">Photos</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* Photo Item 1 */}
+          <div className="relative group overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="/image"
+              alt="A scenic view of a lake and mountains"
+              className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white text-sm">Your caption for image</p>
+            </div>
+          </div>
+
+          {/* Photo Item 2 */}
+          <div className="relative group overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="/image2"
+              alt="Hikers in a mountainous landscape"
+              className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white text-sm">Your caption for image2</p>
+            </div>
+          </div>
+           {/* Photo Item 3 */}
+           <div className="relative group overflow-hidden rounded-lg shadow-lg">
+            <img
+              src="/image3"
+              alt="Another photo with a caption"
+              className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white text-sm">Your caption for image3</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
