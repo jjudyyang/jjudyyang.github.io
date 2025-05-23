@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Linkedin, Github, Mail } from "lucide-react";
 
@@ -7,7 +6,7 @@ export function Footer() {
     <footer className="border-t bg-background py-8">
       <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6">
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Judy Yang. All rights reserved.
+          © {new Date().getFullYear()} Judy Yang.
         </p>
         <div className="flex gap-4 items-center">
           <a

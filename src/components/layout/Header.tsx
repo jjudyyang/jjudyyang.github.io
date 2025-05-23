@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -16,8 +15,8 @@ export function Header() {
   const { pathname } = useLocation();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-40 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6 relative">
         <Link to="/about" className="flex items-center gap-2">
           <span className="text-xl font-bold">Judy Yang</span>
         </Link>
@@ -46,11 +45,6 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-            <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
-          </Button>
         </nav>
 
         {/* Mobile navigation */}
@@ -71,14 +65,22 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Button asChild variant="default" className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
-                <a href="/JudyYang_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                  Resume
-                </a>
-              </Button>
             </nav>
           </div>
         )}
+        {/* Squiggly divider */}
+        <svg
+          className="absolute left-0 -bottom-2 w-full h-4"
+          viewBox="0 0 100 8"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
+            stroke="#e5e7eb" strokeWidth="1" fill="none"
+          />
+        </svg>
       </div>
     </header>
   );

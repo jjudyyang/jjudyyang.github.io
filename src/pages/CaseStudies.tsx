@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -88,7 +87,7 @@ const CaseStudies = () => {
   const [filteredStudies, setFilteredStudies] = useState(caseStudies);
 
   useEffect(() => {
-    document.title = "Projects | Judy Yang";
+    document.title = "Projects";
   }, []);
 
   useEffect(() => {
@@ -184,7 +183,8 @@ const CaseStudies = () => {
       <div className="text-center mb-12">
         <h1 className="heading-lg mb-4">Projects</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A selection of projects showcasing my technical and product management skills.
+          A selection of projects showcasing my technical and product management skills.<br />
+          Building products that the world loves. 🌎
         </p>
       </div>
 

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -179,69 +178,6 @@ const About = () => {
                 ))}
               </ul>
             </div>
-          </div>
-        </section>
-
-        {/* Experience Timeline */}
-        <section className="mb-16">
-          <h2 className="heading-md mb-6">Experience</h2>
-          
-          <div className="space-y-8">
-            {/* Red Bull Aero */}
-            <div className="border-l-4 border-[#0A84FF] pl-6 py-1">
-              <div className="flex flex-wrap justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold">Product Manager | Red Bull Aero</h3>
-                <span className="text-muted-foreground">2023 - Present</span>
-              </div>
-              <p className="mb-2">Leading product strategy for cutting-edge aeronautics visualization tools.</p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Oversaw product roadmap that increased user engagement by 35%</li>
-                <li>Led cross-functional team of engineers and designers</li>
-                <li>Implemented data-driven methodology for feature prioritization</li>
-              </ul>
-            </div>
-
-            {/* Pepper i2 */}
-            <div className="border-l-4 border-[#0A84FF] pl-6 py-1">
-              <div className="flex flex-wrap justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold">Product Manager | Pepper i2</h3>
-                <span className="text-muted-foreground">2021 - 2023</span>
-              </div>
-              <p className="mb-2">First product hire, helping grow user base by 200% in 6 months.</p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Built and executed product strategy from ground up</li>
-                <li>Conducted extensive user research to inform feature development</li>
-                <li>Managed sprint planning and product delivery</li>
-              </ul>
-            </div>
-
-            {/* TechCorp */}
-            <div className="border-l-4 border-[#0A84FF] pl-6 py-1">
-              <div className="flex flex-wrap justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold">Product Manager Intern | TechCorp</h3>
-                <span className="text-muted-foreground">2020 - 2021</span>
-              </div>
-              <p className="mb-2">Led feature development for a B2B SaaS product used by Fortune 500 companies.</p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                <li>Owned full product life cycle for 2 major feature releases</li>
-                <li>Collaborated with UX researchers to identify user needs</li>
-                <li>Presented product metrics and roadmap to executive team</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Education Section */}
-        <section>
-          <h2 className="heading-md mb-6">Education</h2>
-          
-          <div className="border-l-4 border-[#0A84FF] pl-6 py-1">
-            <div className="flex flex-wrap justify-between items-start mb-2">
-              <h3 className="text-xl font-semibold">BS in Computer Science</h3>
-              <span className="text-muted-foreground">2018 - 2022</span>
-            </div>
-            <p className="mb-1">University of Waterloo</p>
-            <p className="text-muted-foreground">Focused on UI/UX and product development. Dean's List 2020-2022.</p>
           </div>
         </section>
       </div>
