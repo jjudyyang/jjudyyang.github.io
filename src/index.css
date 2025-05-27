@@ -131,3 +131,16 @@
   animation: spin-y 4s linear infinite;
   transform-style: preserve-3d;
 }
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  transform: scaleX(0.5);
+  transform-origin: left;
+}

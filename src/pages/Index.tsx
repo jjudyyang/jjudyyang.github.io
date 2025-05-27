@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const timelineItems = [
   {
@@ -36,8 +37,23 @@ const Index = () => {
   // Sort timelineItems in reverse chronological order
   const sortedTimeline = [...timelineItems].sort((a, b) => getYearValue(b.year) - getYearValue(a.year));
 
+  const textToType = "Hello 👋 I'm Judy Yang";
+  const [displayedText, setDisplayedText] = useState('');
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    if (charIndex < textToType.length) {
+      const typingTimeout = setTimeout(() => {
+        setDisplayedText(textToType.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }, 100); // Increased typing speed here
+
+      return () => clearTimeout(typingTimeout);
+    }
+  }, [charIndex, textToType]);
+
   return (
-    <div className="flex flex-col min-h-full">
+    <div className="flex flex-col min-h-full" style={{ cursor: "url('data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20' height='20'><text y='.9em' font-size='90'>🍅</text></svg>'), auto" }}>
       {/* Hero Section */}
       <section className="py-16 md:py-24 lg:py-32 container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
@@ -51,10 +67,11 @@ const Index = () => {
             </svg>
           </div>
           <h1 className="heading-xl max-w-3xl">
-            Hello 👋 I'm <span className="text-[#0A84FF]">Judy Yang</span>
+            <span className="text-[#0A84FF]">{displayedText}</span>
+            {charIndex === textToType.length && <span className="typing-cursor">|</span>}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Computer Science @ uWaterloo — minoring in AI & HCI. Aspiring Product Manager building products loved by the world. 
+            Computer Science @ <a href="https://cs.uwaterloo.ca/" target="_blank" rel="noopener noreferrer">uWaterloo</a> — minoring in AI & HCI. Aspiring Product Manager building products loved by the world. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
