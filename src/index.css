@@ -73,10 +73,27 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    /* Faint light blue graph paper background */
-    background-image: repeating-linear-gradient(0deg, #a0c0ff, #a0c0ff 1px, #ffffff 1px, #ffffff 30px),
-                      repeating-linear-gradient(90deg, #a0c0ff, #a0c0ff 1px, #ffffff 1px, #ffffff 30px);
-    background-size: 30px 30px; /* Size of each grid square */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('@/assets/images/whitebackgroundtexture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><text y=".9em" font-size="90">🍅</text></svg>'), auto; */
+  }
+
+  body:active {
+    /* cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><text y=".9em" font-size="90">🥫</text></svg>'), grabbing; */
+  }
+
+  a:hover,
+  button:hover,
+  [role="button"]:hover,
+  .cursor-pointer:hover {
+    /* cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><text y=".9em" font-size="90" transform="rotate(180, 50, 50)">🔪</text></svg>'), pointer; */
+  }
+}
+
+@layer base {
+  .dark body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('@/assets/images/blackbackgroundtexture.jpg');
   }
 }
 

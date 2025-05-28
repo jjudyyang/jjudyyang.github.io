@@ -3,7 +3,7 @@ import { Linkedin, Github, Mail } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-background py-8 relative">
+    <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-[url('@/assets/images/whitebackgroundtexture.jpg')] dark:bg-[url('@/assets/images/blackbackgroundtexture.jpg')] bg-cover bg-no-repeat">
       {/* Squiggly divider */}
       <svg
         className="absolute left-0 -top-2 w-full h-4 transform rotate-180"
@@ -14,10 +14,10 @@ export function Footer() {
       >
         <path
           d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
-          stroke="#e5e7eb" strokeWidth="1" fill="none"
+          stroke="hsl(var(--foreground))" strokeWidth="1" fill="none"
         />
       </svg>
-      <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6">
+      <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6 py-8">
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} judy - made with &lt;3 in yyc.
         </p>

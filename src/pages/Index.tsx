@@ -14,6 +14,8 @@ import image2 from "@/assets/images/image2.jpg";
 
 //END OF PHOTOS
 
+// Import case studies data
+import { caseStudies, getTagColorClasses } from "@/pages/CaseStudies";
 
 const timelineItems = [
   {
@@ -99,14 +101,35 @@ const Index = () => {
                 Projects
               </Link>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
               <Link to="/resume">
                 Resume
               </Link>
             </Button>
+            <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
+              <a href="https://github.com/jjudyyang" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </Button>
           </div>
         </div>
       </section>
+
+      {/* Squiggly divider */}
+      <div className="relative w-full h-4">
+        <svg
+          className="absolute left-0 top-0 w-full h-4"
+          viewBox="0 0 100 8"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
+            stroke="currentColor" strokeWidth="1" fill="none"
+          />
+        </svg>
+      </div>
 
       {/* Timeline Section */}
       <section className="bg-muted py-16 md:py-24">
@@ -128,6 +151,22 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Squiggly divider */}
+      <div className="relative w-full h-4">
+        <svg
+          className="absolute left-0 top-0 w-full h-4"
+          viewBox="0 0 100 8"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
+            stroke="currentColor" strokeWidth="1" fill="none"
+          />
+        </svg>
+      </div>
+
       {/* 3 Projects Section */}
       <section className="py-16 md:py-24 container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
@@ -137,68 +176,51 @@ const Index = () => {
           </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {/* Project 1 - Cookify */}
-          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
-            <div className="aspect-video bg-muted"></div>
-            <div className="p-6">
-              <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30">
-                  Web App
-                </span>
-                <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:bg-purple-400/10 dark:text-purple-400 dark:ring-purple-400/30">
-                  React
-                </span>
+          {caseStudies.slice(0, 3).map((study) => (
+            <Link key={study.id} to={`/case-studies/${study.id}`} className="block rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
+              <div className="aspect-video bg-muted">
+                {study.imageUrl && (
+                  <img
+                    src={study.imageUrl}
+                    alt={study.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
-              <h3 className="text-lg font-semibold">Cookify</h3>
-              <p className="text-muted-foreground mt-2">Spotify but for recipes - personalized cooking recommendations based on preferences</p>
-              <Button asChild variant="link" className="pl-0 mt-2">
-                <Link to="/case-studies/cookify">View Project</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* Project 2 - Uni Eats */}
-          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
-            <div className="aspect-video bg-muted"></div>
-            <div className="p-6">
-              <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30">
-                  Mobile
-                </span>
-                <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-700/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30">
-                  Community
-                </span>
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {study.tags.map(tag => (
+                    <span 
+                      key={`${study.id}-${tag}`}
+                      className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getTagColorClasses(tag, false)}`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-lg font-semibold">{study.title}</h3>
+                <p className="text-muted-foreground mt-2">{study.description}</p>
               </div>
-              <h3 className="text-lg font-semibold">Uni Eats</h3>
-              <p className="text-muted-foreground mt-2">Platform to split groceries in university communities, reducing food waste and expenses</p>
-              <Button asChild variant="link" className="pl-0 mt-2">
-                <Link to="/case-studies/uni-eats">View Project</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* Project 3 - DEVELOP FOR GOOD*/}
-          <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
-            <div className="aspect-video bg-muted"></div>
-            <div className="p-6">
-              <div className="flex gap-2 mb-2">
-                <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700/10 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30">
-                  Social Impact
-                </span>
-                <span className="inline-flex items-center rounded-md bg-orange-50 px-2 py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-700/10 dark:bg-orange-400/10 dark:text-orange-400 dark:ring-orange-400/30">
-                  Data
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold">Develop for Good</h3>
-              <p className="text-muted-foreground mt-2">Monitoring corruption in electricity access applications in Benin, partnering with local utility SBEE</p>
-              <Button asChild variant="link" className="pl-0 mt-2">
-                <Link to="/case-studies/develop-for-good">View Project</Link>
-              </Button>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
+
+      {/* Squiggly divider */}
+      <div className="relative w-full h-4">
+        <svg
+          className="absolute left-0 top-0 w-full h-4"
+          viewBox="0 0 100 8"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
+            stroke="currentColor" strokeWidth="1" fill="none"
+          />
+        </svg>
+      </div>
 
       {/* Photos Section - make look like a polariod where you can type + guess the location of each
       - change formatting later
