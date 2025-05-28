@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
+import UniEatsImage from "@/assets/images/UniEatsLogo.jpg";
 
 // Sample projects data with Judy's projects
 const caseStudies = [
@@ -22,7 +23,7 @@ const caseStudies = [
     title: "Uni Eats",
     description: "Platform to split groceries in university communities, reducing food waste and expenses",
     tags: ["Mobile", "Community", "Product Management"],
-    imageUrl: "",
+    imageUrl: UniEatsImage,
     tagColors: {
       "Mobile": "green",
       "Community": "orange",
