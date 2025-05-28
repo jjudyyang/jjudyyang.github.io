@@ -2,28 +2,42 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
+//PHOTOS
+
+//import images
+import image from "@/assets/images/image.jpg";
+import image1 from "@/assets/images/image1.jpg";
+import image2 from "@/assets/images/image2.jpg";
+
+//define image captions here
+
+//END OF PHOTOS
+
+
 const timelineItems = [
-  {
-    year: "2023-2024",
-    title: "Product Support Intern @ Pepper",
-    description: "Enhanced mobile app stability and defined client integration requirements, reducing onboarding time by 30%."
-  },
-  {
-    year: "2023",
-    title: "Software Engineer @ Kindred AI",
-    description: "Worked on AI robotics for grocery automation, collaborating with engineers on robot's spatial perception."
-  },
-  {
-    year: "2022",
-    title: "Software Developer Intern | Veriday",
-    description: "Drove 10× faster site validation, 30% shorter testing cycles, and 60% quicker deployments through automation and direct client collaboration."
-  },
   {
     year: "2025",
     title: "AI Associate Product Management Intern @ Pepper",
     description: "End-to-end development of an Intelligent Inbox with focus on product discovery and adoption."
+  },
+  {
+    year: "2023",
+    title: "Solutions Engineering Intern @ Pepper",
+    description: "Enhanced mobile app stability and defined client integration requirements, reducing onboarding time by 30%."
+  },
+  {
+    year: "2023",
+    title: "Software Engineer Intern @ Kindred AI",
+    description: "Worked on AI robotics for grocery automation, collaborating with engineers on robot's spatial perception."
+  },
+  {
+    year: "2022",
+    title: "Software Developer Intern @ Veriday",
+    description: "Drove 10× faster site validation, 30% shorter testing cycles, and 60% quicker deployments through automation and direct client collaboration."
   }
 ];
+
 
 const getYearValue = (year) => {
   // Handles both single years and ranges like '2023-2024'
@@ -37,9 +51,12 @@ const Index = () => {
   // Sort timelineItems in reverse chronological order
   const sortedTimeline = [...timelineItems].sort((a, b) => getYearValue(b.year) - getYearValue(a.year));
 
-  const textToType = "Hello 👋 I'm Judy Yang";
+
+  //main header and typing animation
+  const textToType = "Hello 🌎  I'm Judy";
   const [displayedText, setDisplayedText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
+
 
   useEffect(() => {
     if (charIndex < textToType.length) {
@@ -50,7 +67,7 @@ const Index = () => {
 
       return () => clearTimeout(typingTimeout);
     }
-  }, [charIndex, textToType]);
+  }, [charIndex, textToType]); //typing effect
 
   return (
     <div className="flex flex-col min-h-full" style={{ cursor: "url('data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20' height='20'><text y='.9em' font-size='90'>🍅</text></svg>'), auto" }}>
@@ -70,8 +87,11 @@ const Index = () => {
             <span className="text-[#0A84FF]">{displayedText}</span>
             {charIndex === textToType.length && <span className="typing-cursor">|</span>}
           </h1>
+
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Computer Science @ <a href="https://cs.uwaterloo.ca/" target="_blank" rel="noopener noreferrer">uWaterloo</a> — minoring in AI & HCI. Aspiring Product Manager building products loved by the world. 
+            Computer Science @ <a href="https://cs.uwaterloo.ca/" target="_blank" rel="noopener noreferrer">uWaterloo</a> — minoring in AI & HCI. 
+            <br></br> 
+            Aspiring Product Manager building products loved by the world. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
@@ -108,15 +128,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* 3 Projects Section */}
       <section className="py-16 md:py-24 container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="heading-lg">Favorite Projects</h2>
+          <h2 className="heading-lg text-center mb-12">Favorite Projects</h2>
           <Button asChild variant="outline" className="mt-4 md:mt-0">
             <Link to="/case-studies">View All</Link>
           </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
           {/* Project 1 - Cookify */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
             <div className="aspect-video bg-muted"></div>
@@ -157,7 +178,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Project 3 - Develop for Good */}
+          {/* Project 3 - DEVELOP FOR GOOD*/}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
             <div className="aspect-video bg-muted"></div>
             <div className="p-6">
@@ -179,43 +200,50 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Photos Section */}
+      {/* Photos Section - make look like a polariod where you can type + guess the location of each
+      - change formatting later
+      
+      */}
       <section className="py-16 md:py-24 container px-4 md:px-6">
-        <h2 className="heading-lg text-center mb-12">Photos</h2>
+        <h2 className="heading-lg text-center mb-12">Judy's Geo Guessor</h2>
+
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Guess where in the world the below photos were taken - hover to reveal! 
+        </p>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {/* Photo Item 1 */}
+          {/* Photo Item  */}
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/image"
-              alt="A scenic view of a lake and mountains"
+              src={image}
               className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-sm">Your caption for image</p>
+              <p className="text-white text-sm">📍 Lake Louise, Alberta, Canada</p>
             </div>
           </div>
 
-          {/* Photo Item 2 */}
+          {/* Photo Item 1 */}
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/image2"
-              alt="Hikers in a mountainous landscape"
+              src={image1}
               className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-sm">Your caption for image2</p>
+              <p className="text-white text-sm">📍 Mount Fuji, Japan </p>
             </div>
           </div>
-           {/* Photo Item 3 */}
+           {/* Photo Item 2 */}
            <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/image3"
-              alt="Another photo with a caption"
+              src={image2}
+
               className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-blue-400 bg-opacity-75 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-sm">Your caption for image3</p>
+              <p className="text-white text-sm">📍 Kananaskis, Alberta, Canada</p>
             </div>
+            
           </div>
         </div>
       </section>

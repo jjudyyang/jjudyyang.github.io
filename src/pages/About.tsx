@@ -11,6 +11,7 @@ import {
   Legend
 } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
+import profileImage from "@/assets/images/profile.jpg";
 
 // Skills data for radar chart organized by categories - matches the image shared
 const skillsData = [
@@ -82,13 +83,16 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16">
           <div className="md:col-span-3">
             <p className="text-lg mb-4">
-              I'm a Computer Science student at the University of Waterloo, passionate about building products that solve real problems for users while driving business growth.
+              I'm a 4th year Computer Science student at Waterloo, taking a 5th year to get deep into the theory of AI and Human Computer Interaction. 
             </p>
             <p className="text-lg mb-4">
-              With my technical foundation and practical experience leading products at companies like Pepper i2 and Red Bull Aero, I bring a unique blend of technical understanding and business acumen to every project.
+              With a drilled technical foundation I bring a unique blend of technical depth, creativity, business acumen and energy to every project.
             </p>
             <p className="text-lg mb-4">
-              I thrive in environments where I can collaborate with cross-functional teams to transform complex problems into elegant, user-centered solutions. My approach combines data-driven decision making with empathetic user understanding.
+              I thrive in collaborative environments with cross-functional teams to breakdown complex problems into elegant and simple solutions. 
+              <br></br>
+              <br></br>
+              A data nerd with user empathy to drive decisions to make people fall in love with technology.  
             </p>
             <div className="mt-6">
               <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
@@ -98,15 +102,19 @@ const About = () => {
           </div>
 
           <div className="md:col-span-2">
-            <div className="aspect-square bg-muted rounded-lg"></div>
-            <p className="text-sm text-muted-foreground text-center mt-2">Judy Yang, Computer Science Student</p>
+            <img 
+              src={profileImage} 
+              alt="Judy Yang" 
+              className="aspect-square object-cover rounded-lg w-full h-full"
+            />
+            <p className="text-sm text-muted-foreground text-center mt-2"> SF night with mangos + tajin!  </p>
           </div>
         </div>
 
         {/* Skills Section - PM Competency Wheel */}
         <section className="mb-16">
-          <h2 className="heading-md mb-6">My Skills Distribution</h2>
-          
+          <h2 className="heading-md mb-6">Product Skills Stats</h2>
+  <h5>note: not up to date - tentative timeline of completion, august 2025</h5>        
           {/* PM Competency Wheel - radar chart styled like the image */}
           <div className="bg-muted p-6 rounded-lg mb-8">
             <h3 className="text-xl font-semibold mb-4 text-center">Product Manager Competencies</h3>

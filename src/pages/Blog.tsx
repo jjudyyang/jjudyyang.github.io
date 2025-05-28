@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-// Sample blog data (this would come from Supabase in a real implementation)
 const blogPosts = [
   {
     slug: "product-led-growth",
-    title: "The Evolution of Product-Led Growth",
+    title: "Recuriting Strategy",
     excerpt: "How focusing on product experience drives sustainable business growth and creates customer advocates.",
     date: "2023-11-15",
     readTime: "6 min read",
@@ -16,7 +15,7 @@ const blogPosts = [
   },
   {
     slug: "user-research-techniques",
-    title: "5 Underrated User Research Techniques",
+    title: "5 Ways to use AI .... ",
     excerpt: "Beyond interviews and surveys: innovative ways to gather valuable user insights for your product development process.",
     date: "2023-10-22",
     readTime: "4 min read",
@@ -25,8 +24,8 @@ const blogPosts = [
   },
   {
     slug: "ml-product-integration",
-    title: "Integrating ML into Your Product Strategy",
-    excerpt: "A practical guide for product managers on how to effectively incorporate machine learning features into product roadmaps.",
+    title: "Product Teardown - Glance Back",
+    excerpt: "https://make-your-work-easier.notion.site/Product-Teardown-Worksheet-16c4897843834ccc8f41205146c5ca7f",
     date: "2023-09-08",
     readTime: "8 min read",
     tags: ["Machine Learning", "Product Strategy"],
@@ -34,7 +33,7 @@ const blogPosts = [
   },
   {
     slug: "metrics-that-matter",
-    title: "Product Metrics That Actually Matter",
+    title: "Learnings from my First Product Internship",
     excerpt: "Moving beyond vanity metrics to track indicators that provide actionable insights for product decisions.",
     date: "2023-08-17",
     readTime: "5 min read",
@@ -42,8 +41,8 @@ const blogPosts = [
     imageUrl: ""
   },
   {
-    slug: "technical-pm",
-    title: "The Value of Technical Background in Product Management",
+    slug: "why-pm",
+    title: "Why Product Management?",
     excerpt: "How my CS degree shaped my approach to product management and enables better collaboration with engineering teams.",
     date: "2023-07-29",
     readTime: "7 min read",
@@ -60,7 +59,7 @@ const Blog = () => {
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
 
   useEffect(() => {
-    document.title = "Blog | Judy Yang";
+    document.title = "Blog";
   }, []);
 
   useEffect(() => {
@@ -78,7 +77,7 @@ const Blog = () => {
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
       <div className="max-w-4xl mx-auto">
-        <h1 className="heading-lg mb-4">Blog</h1>
+        <h1 className="heading-lg mb-4">Judy's Field Notes 📝 🗺️ </h1>
         <p className="text-lg text-muted-foreground mb-8">
           Thoughts on product management, technology, and my journey in the industry.
         </p>
@@ -145,7 +144,7 @@ const Blog = () => {
                   <p className="mb-4">{post.excerpt}</p>
                   
                   <Button asChild variant="link" className="pl-0">
-                    <Link to={`/blog/${post.slug}`}>Read more</Link>
+                    <Link to={`/blog/${post.slug}`}>Explore Note</Link>
                   </Button>
                 </div>
               </div>

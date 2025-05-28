@@ -181,10 +181,9 @@ const CaseStudies = () => {
   return (
     <div className="container px-4 md:px-6 py-12 md:py-16">
       <div className="text-center mb-12">
-        <h1 className="heading-lg mb-4">Projects</h1>
+        <h1 className="heading-lg mb-4">Project Museum 🖼️ </h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A selection of projects showcasing my technical and product management skills.<br />
-          Building products that the world loves. 🌎
+         Goal: Build products loved by the world. 🌎
         </p>
       </div>
 

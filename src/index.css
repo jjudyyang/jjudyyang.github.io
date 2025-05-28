@@ -73,6 +73,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    /* Faint light blue graph paper background */
+    background-image: repeating-linear-gradient(0deg, #a0c0ff, #a0c0ff 1px, #ffffff 1px, #ffffff 30px),
+                      repeating-linear-gradient(90deg, #a0c0ff, #a0c0ff 1px, #ffffff 1px, #ffffff 30px);
+    background-size: 30px 30px; /* Size of each grid square */
   }
 }
 
