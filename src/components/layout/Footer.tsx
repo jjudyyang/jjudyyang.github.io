@@ -14,7 +14,7 @@ export function Footer() {
       >
         <path
           d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
-          stroke="hsl(var(--foreground))" strokeWidth="1" fill="none"
+          stroke="#e5e7eb" strokeWidth="1" fill="none"
         />
       </svg>
       <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6 py-8">

@@ -115,22 +115,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Squiggly divider */}
-      <div className="relative w-full h-4">
-        <svg
-          className="absolute left-0 top-0 w-full h-4"
-          viewBox="0 0 100 8"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
-            stroke="currentColor" strokeWidth="1" fill="none"
-          />
-        </svg>
-      </div>
-
       {/* Timeline Section */}
       <section className="bg-muted py-16 md:py-24">
         <div className="container px-4 md:px-6">
@@ -150,22 +134,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Squiggly divider */}
-      <div className="relative w-full h-4">
-        <svg
-          className="absolute left-0 top-0 w-full h-4"
-          viewBox="0 0 100 8"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
-            stroke="currentColor" strokeWidth="1" fill="none"
-          />
-        </svg>
-      </div>
 
       {/* 3 Projects Section */}
       <section className="py-16 md:py-24 container px-4 md:px-6">
@@ -205,22 +173,6 @@ const Index = () => {
           ))}
         </div>
       </section>
-
-      {/* Squiggly divider */}
-      <div className="relative w-full h-4">
-        <svg
-          className="absolute left-0 top-0 w-full h-4"
-          viewBox="0 0 100 8"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 4 Q 12.5 8, 25 4 T 50 4 T 75 4 T 100 4"
-            stroke="currentColor" strokeWidth="1" fill="none"
-          />
-        </svg>
-      </div>
 
       {/* Photos Section - make look like a polariod where you can type + guess the location of each
       - change formatting later

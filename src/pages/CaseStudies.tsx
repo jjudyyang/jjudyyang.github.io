@@ -5,6 +5,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 import UniEatsImage from "@/assets/images/UniEatsLogo.jpg";
 import UWPMImage from "@/assets/images/uwpmlogo.jpg";
+import CookifyImage from "@/assets/images/cookifyImage.jpg";
 
 // Sample projects data with Judy's projects
 export const caseStudies = [
@@ -13,7 +14,7 @@ export const caseStudies = [
     title: "Cookify",
     description: "Spotify but for recipes - personalized cooking recommendations based on preferences",
     tags: ["Web App", "UX/UI", "AI"],
-    imageUrl: "",
+    imageUrl: CookifyImage,
     tagColors: {
       "Web App": "blue",
       "UX/UI": "purple",
