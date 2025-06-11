@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { ReactP5Wrapper, Sketch } from "react-p5-wrapper";
+import { ReactP5Wrapper, Sketch } from "@p5-wrapper/react";
 
 const LORENZ_PARAMS = {
   sigma: 10,
