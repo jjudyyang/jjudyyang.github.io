@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import LorenzCanvas from "@/components/LorenzCanvas";
+// import HeroAnimation from "@/components/HeroAnimation"; // Removed HeroAnimation import
 
 //PHOTOS
 
@@ -53,7 +54,6 @@ const Index = () => {
   // Sort timelineItems in reverse chronological order
   const sortedTimeline = [...timelineItems].sort((a, b) => getYearValue(b.year) - getYearValue(a.year));
 
-
   //main header and typing animation
   const textToType = "Hello 🌎  I'm Judy";
   const [displayedText, setDisplayedText] = useState('');
@@ -72,28 +72,20 @@ const Index = () => {
   }, [charIndex, textToType]); //typing effect
 
   return (
-    <div className="flex flex-col min-h-full" style={{ cursor: "url('data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20' height='20'><text y='.9em' font-size='90'>🍅</text></svg>'), auto" }}>
+    <div className="flex flex-col min-h-full w-full">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 lg:py-32 container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
-          {/* Rotating Globe Animation */}
-          <div className="mb-2">
-            <svg className="inline-block w-16 h-16 animate-spin-y" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="30" fill="#4F8EF7" />
-              <ellipse cx="32" cy="32" rx="28" ry="28" fill="#A3D9A5" />
-              <path d="M32 4 A28 28 0 0 1 60 32 A28 28 0 0 1 32 60 A28 28 0 0 1 4 32 A28 28 0 0 1 32 4 Z" fill="#4F8EF7" />
-              <ellipse cx="32" cy="32" rx="20" ry="28" fill="#A3D9A5" fillOpacity="0.5" />
-            </svg>
-          </div>
-          <h1 className="heading-xl max-w-3xl">
+      <section className="relative py-16 md:py-24 lg:py-32 container px-4 md:px-6 z-10 flex flex-col items-center">
+        <div className="flex flex-col items-center text-center space-y-4 animate-fade-in relative z-10">
+          {/* Lorenz Attractor Animation - now above the h1 */}
+          <LorenzCanvas />
+          <h1 className="heading-xl max-w-3xl mt-4">
             <span className="text-[#0A84FF]">{displayedText}</span>
             {charIndex === textToType.length && <span className="typing-cursor">|</span>}
           </h1>
-
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Computer Science @ <a href="https://cs.uwaterloo.ca/" target="_blank" rel="noopener noreferrer">uWaterloo</a> — minoring in AI & HCI. 
             <br></br> 
-            Aspiring Product Manager building products loved by the world. 
+            Building products loved by the world and the databases that power them. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild className="bg-[#0A84FF] hover:bg-[#0A84FF]/90">
@@ -179,7 +171,7 @@ const Index = () => {
       
       */}
       <section className="py-16 md:py-24 container px-4 md:px-6">
-        <h2 className="heading-lg text-center mb-12">Judy's Geo Guessor</h2>
+        <h2 className="heading-lg text-center mb-12">Judy's Geo Guesser</h2>
 
         <p className="text-muted-foreground max-w-2xl mx-auto">
           Guess where in the world the below photos were taken - hover to reveal! 

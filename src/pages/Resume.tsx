@@ -10,7 +10,7 @@ const Resume = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-1/3 text-center">
-        <h1 className="text-xl mb-4 font-normal">Interested in my resume? Connect with me and I'll share the most current version.</h1>
+        <h1 className="text-xl mb-4 font-normal">I'll send you the freshest version.</h1>
         <div className="space-y-4">
           <Button asChild className="w-full bg-[#0A84FF] hover:bg-[#0A84FF]/90">
             <a href="mailto:j636yang@uwaterloo.ca" target="_blank" rel="noopener noreferrer">
