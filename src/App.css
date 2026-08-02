@@ -38,12 +38,6 @@ body {
   color: white;
 }
 
-.weather {
-  position:absolute;
-  right: 25px;
-  top: 25px;
-}
-
 .experiences-wide {
   margin-top: 30px;
   font-family: "Inter", sans-serif;
@@ -65,7 +59,7 @@ body {
 
 .theme {
   position:absolute;
-  right: 65px;
+  right: 25px;
   top: 25px;
 }
 

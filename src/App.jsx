@@ -1,90 +1,39 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import "./rain.css";
 
 import Work from "./Work.jsx";
-import Cloudy from "./svg/Cloudy.jsx";
 import Dark from "./svg/Dark.jsx";
 import Light from "./svg/Light.jsx";
-import Rainy from "./svg/Rainy.jsx";
 import AWResume from "./res/ADA_WANG_RESUME.pdf";
 
-function buildRainDrops(weather) {
-  if (!weather) {
-    return { front: [], back: [] };
-  }
-
-  let increment = 0;
-  const front = [];
-  const back = [];
-
-  while (increment < 100) {
-    const randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
-    const randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
-    increment += randoFiver;
-
-    const style = {
-      bottom: `${randoFiver + randoFiver - 1 + 100}%`,
-      animationDelay: `0.${randoHundo}s`,
-      animationDuration: `0.5${randoHundo}s`,
-    };
-
-    front.push({
-      id: `front-${increment}-${randoHundo}`,
-      style: { ...style, color: "#1F51FF", left: `${increment}%` },
-    });
-    back.push({
-      id: `back-${increment}-${randoHundo}`,
-      style: { ...style, right: `${increment}%` },
-    });
-  }
-
-  return { front, back };
-}
-
 function App() {
-  const [weather, setWeather] = useState(true);
   const [theme, setTheme] = useState(true);
   const [style, setStyle] = useState(() => (window.innerWidth <= 880 ? "narrow" : "wide"));
-  const rainDrops = useMemo(() => buildRainDrops(weather), [weather]);
 
   useEffect(() => {
     const handleResize = () => {
       setStyle(window.innerWidth <= 900 ? "narrow" : "wide");
-      setFallDistance();
     };
 
     window.addEventListener("resize", handleResize);
-    window.addEventListener("load", setFallDistance);
     handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("load", setFallDistance);
     };
   }, []);
 
   useEffect(() => {
-    document.body.className = `${theme ? "light" : "dark"} back-row-toggle splat-toggle`;
+    document.body.className = theme ? "light" : "dark";
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme(!theme);
   };
 
-  const toggleWeather = () => {
-    setWeather(!weather);
-  };
-
   return (
-    <div className={`App-${style} ${theme ? "light" : "dark"} back-row-toggle splat-toggle`}>
-      <RainRow className="front-row" drops={rainDrops.front} />
-      <RainRow className="back-row" drops={rainDrops.back} />
-
+    <div className={`App-${style} ${theme ? "light" : "dark"}`}>
       <div className="content">
-        <div className="weather img" onClick={toggleWeather}>
-          {weather ? <Rainy theme={theme} /> : <Cloudy theme={theme} />}
-        </div>
         <div className="theme img" onClick={toggleTheme}>
           {theme ? <Dark /> : <Light />}
         </div>
@@ -287,35 +236,6 @@ function App() {
       </div>
     </div>
   );
-}
-
-function RainRow({ className, drops }) {
-  return (
-    <div className={`rain ${className}`}>
-      {drops.map((drop) => (
-        <div className="drop" key={drop.id} style={drop.style}>
-          <div
-            className="stem"
-            style={{
-              animationDelay: drop.style.animationDelay,
-              animationDuration: drop.style.animationDuration,
-            }}
-          />
-          <div
-            className="splat"
-            style={{
-              animationDelay: drop.style.animationDelay,
-              animationDuration: drop.style.animationDuration,
-            }}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function setFallDistance() {
-  document.documentElement.style.setProperty("--fall-distance", `${document.body.scrollHeight + 300}px`);
 }
 
 export default App;

@@ -1,12 +1,11 @@
 # Ada Portfolio Recreation
 
-A Vite + React recreation of Ada Wang's public portfolio source. This version keeps the structure and styling close to the original repo:
+A Vite + React recreation of Ada Wang's public portfolio source. This version keeps the structure and styling close to the original repo while removing the animated background:
 
 - chaptered intro, Experience, Projects, and Me sections
 - original-looking text links and work tiles
 - original light/dark display toggle
-- original rainy/cloudy visual toggle
-- copied source CSS for the layout and rain effect
+- copied source CSS for the layout
 
 ## Run
 
