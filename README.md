@@ -1,12 +1,12 @@
-# Portfolio Template
+# Ada Portfolio Recreation
 
-A small React portfolio starter inspired by Ada Wang's public portfolio:
+A Vite + React recreation of Ada Wang's public portfolio source. This version keeps the structure and styling close to the original repo:
 
-- chaptered Experience and Projects sections
-- light/dark display toggle
-- rainy/cloudy visual toggle
-- editable content in one data file
-- responsive card layout for desktop and mobile
+- chaptered intro, Experience, Projects, and Me sections
+- original-looking text links and work tiles
+- original light/dark display toggle
+- original rainy/cloudy visual toggle
+- copied source CSS for the layout and rain effect
 
 ## Run
 
@@ -24,9 +24,7 @@ npm run dev
 
 ## Customize
 
-Edit `src/data/profile.js` to replace the name, intro bullets, links, stack, experience, and projects.
-
-Place a resume PDF in `public/resume.pdf`, or change the resume link in `profile.links`.
+Edit `src/App.jsx` to replace the intro copy, links, experience, projects, and hobbies.
 
 ## Build
 
