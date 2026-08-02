@@ -4,11 +4,18 @@ import "./App.css";
 import Work from "./Work.jsx";
 import Dark from "./svg/Dark.jsx";
 import Light from "./svg/Light.jsx";
-import AWResume from "./res/ADA_WANG_RESUME.pdf";
+import { siteLinks } from "./siteLinks.js";
+
+const pageHeader = [
+  "$ initializing...",
+  "$ ssh judyyang@portfolio",
+  "hello, its Judy",
+];
 
 function App() {
   const [theme, setTheme] = useState(true);
   const [style, setStyle] = useState(() => (window.innerWidth <= 880 ? "narrow" : "wide"));
+  const [visiblePageHeader, setVisiblePageHeader] = useState(1);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,6 +34,15 @@ function App() {
     document.body.className = theme ? "light" : "dark";
   }, [theme]);
 
+  useEffect(() => {
+    const timers = [
+      window.setTimeout(() => setVisiblePageHeader(2), 1000),
+      window.setTimeout(() => setVisiblePageHeader(3), 2000),
+    ];
+
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, []);
+
   const toggleTheme = () => {
     setTheme(!theme);
   };
@@ -40,32 +56,35 @@ function App() {
 
         <div className={`section-${style}`}>
           <div>
-            <div className="header">Ello, Ada here</div>
+            <TerminalHeader visibleCount={visiblePageHeader} />
             <div className="desc">
               <ul>
-                <li>4th year Software Engineering student from U of Waterloo</li>
-                <li>a big reader, talk to me about any books!</li>
-                <li>also an anime watcher and history fan</li>
-                <li>currently exploring the world of AI and learning about all things data and AWS related.</li>
+                <li>Computer Science student at the University of Waterloo</li>
+                <li>lover of bikes & flaneuring around cities</li>
                 <li>
-                  how i stack my pancakes:
-                  <span style={{ color: "#e3672d", fontWeight: "bold" }}> Svelte</span>,
+                  fueled by <span style={{ color: "#f5ad42", fontWeight: "bold" }}>mangos</span> +{" "}
+                  <span style={{ color: "#d64a31", fontWeight: "bold" }}>tajin</span>
+                </li>
+                <li>curious about products loved by the world and all things databases & distributed</li>
+                <li>
+                  navigating:
+                  <span style={{ color: "#e3672d", fontWeight: "bold" }}> React</span>,
                   <span style={{ color: "#2a92b8", fontWeight: "bold" }}> Python</span>,
                   <span style={{ color: "#b84d2a", fontWeight: "bold" }}> Rust</span>,
                   <span style={{ color: "#d19a56", fontWeight: "bold" }}> AWS</span>
                 </li>
               </ul>
               <div className="icons">
-                <a href="https://github.com/adabingw" className="links">
+                <a href={siteLinks.profile.github} target="_blank" className="links" rel="noreferrer">
                   github
                 </a>
-                <a href="https://linkedin.com/in/adabingw" className="links">
+                <a href={siteLinks.profile.linkedin} target="_blank" className="links" rel="noreferrer">
                   linkedin
                 </a>
-                <a href="mailto:abwang@uwaterloo.ca" className="links">
+                <a href={siteLinks.profile.email} className="links">
                   email
                 </a>
-                <a href={AWResume} target="_blank" className="links" rel="noreferrer">
+                <a href={siteLinks.profile.resume} target="_blank" className="links" rel="noreferrer">
                   resume
                 </a>
               </div>
@@ -76,31 +95,31 @@ function App() {
         <div className={`section-${style}`}>
           <div className={`section-left-${style}`}>
             <div className="header">
-              <span className="head">Chapter 1. </span>Experience
+              <span className="head">Snapshot 01 / </span>Experience
             </div>
             <div className={`experiences-${style}`}>
               <div className="experience">
-                <span>Statsig</span>
-                <span>2025 Summer</span>
+                <span>AWS</span>
+                <span>2026 Summer</span>
               </div>
               <div className="experience">
-                <span>Kortex</span>
+                <span>Pepper</span>
                 <span>2025 Winter</span>
               </div>
               <div className="experience">
-                <span>Texada</span>
+                <span>TBS Ontario</span>
                 <span>2024 Summer</span>
               </div>
               <div className="experience">
-                <span>SnapPea</span>
+                <span>Pepper</span>
                 <span>2023 Fall</span>
               </div>
               <div className="experience">
-                <span>McAfee</span>
+                <span>Kindred AI</span>
                 <span>2023 Winter</span>
               </div>
               <div className="experience">
-                <span>Makesens</span>
+                <span>Veriday</span>
                 <span>2022 Summer</span>
               </div>
             </div>
@@ -108,46 +127,40 @@ function App() {
           <div>
             <div className="work_div">
               <Work
-                header="Statsig"
-                position="Data Infrastructure intern"
-                desc="Optimizing deployment pipelines, integrating custom tooling for in-house orchestration solutions, and deploying high-volume log management alternatives."
-                url="https://www.statsig.com/"
+                header="AWS"
+                position="Software Engineering Intern"
+                desc="Helping many database clusters speak as one CDC stream by using distributed-transaction markers, watermarks, and commit timestamps to produce a single ordered binlog output."
+                url={siteLinks.experience.aws}
               />
               <Work
-                header="Kortex"
-                position="Software Engineering intern"
-                desc="Helping create the second brain to capture and remember."
-                url="https://www.kortex.co/"
+                header="Pepper"
+                position="Product Management Intern"
+                desc="Turning messy texts and voicemails into structured data, working across parsing accuracy, user experience, and AI agent workflows."
+                url={siteLinks.experience.pepper}
               />
               <Work
-                header="Texada Software"
-                position="Core developer intern"
-                desc="Terraforming Auth0 system and creating a pipeline for custom slack messages to be delivered after codebuild results. Managed APIGateway and DynamoDB and Lambda infrastructure."
-                url="https://texadasoftware.com/"
+                header="TBS Ontario"
+                position="Data and Policy Intern"
+                desc="Working around quiet machinery of government finacial planning: internal tools, budgeting workflows, and forecasting processes."
+                url={siteLinks.experience.tbsOntario}
               />
               <Work
-                header="SnapPea"
-                position="Software Engineer intern"
-                desc="Creating prototypes and architecting solutions for gas sensors and real-time gas detection."
-                url="https://snappeadesign.com/"
+                header="Pepper"
+                position="Operations"
+                desc="Building operational data pipelines for restaurant suppliers, turning messy PDFs and client order formats into structured data for downstream ordering flows."
+                url={siteLinks.experience.pepper}
               />
               <Work
-                header="McAfee"
-                position="Fullstack developer intern"
-                desc="Data analysis with Databricks and Apache. Also created guidelines of module mocking to unify everyone on the basis of software testing."
-                url="https://www.mcafee.com/en-ca/index.html"
+                header="Kindred AI"
+                position="Software Engineering Intern"
+                desc="Testing robot software and hardware in simulation and on real systems, helping make warehouse automation more reliable one pick cycle at a time."
+                url={siteLinks.experience.kindredAi}
               />
               <Work
-                header="Makesens"
-                position="Software developer intern"
-                desc="Developing IoT products to analyze torsion stress on rotary axles and simulation framework for hydrogen pipeline monitoring."
-                url="http://makesens.ca/"
-              />
-              <Work
-                header="UCalgary & Youreka"
-                position="Cancer research student"
-                desc="Created Kaplan Meier graphs and used Log Sum Rank tests to study effects of mRNA expressions on survivalships and identify prognostic biomarkers."
-                url="http://makesens.ca/"
+                header="Veriday"
+                position="Intern"
+                desc="Worked on website migrations for financial advisors, translating legacy client pages into cleaner, maintainable web experiences."
+                url={siteLinks.experience.veriday}
               />
             </div>
           </div>
@@ -156,48 +169,43 @@ function App() {
         <div className={`section-${style}`}>
           <div className={`section-left-${style} projects`}>
             <div className="header">
-              <span className="head">Chapter 2. </span>Projects
+              <span className="head">Snapshot 02 / </span>Projects
             </div>
-            <a href="https://github.com/adabingw">
-              <div className="center">Find more at my Github!</div>
+            <a href={siteLinks.projects.github} target="_blank" rel="noreferrer">
+              <div className="center">live, love, tinker, laugh</div>
             </a>
           </div>
           <div>
             <div className="work_div">
               <Work
-                header="iago"
-                desc="Game bot for turn-based games implementing the Alphazero algorithm."
-                url="https://iago-adabingw.netlify.app/othello"
+                header="text your mac"
+                desc="text and talk to your computer. connect to calendar, notion mcp, and create emoji alias workflows all from your phone's imessages."
+                url={siteLinks.projects.textYourMac}
               />
               <Work
-                header="graku"
-                desc="Grade calculator and management system written with Svelte, DynamoDB, and GraphQL."
-                url="https://github.com/adabingw/graku/"
+                header="my toolbox"
+                desc="built a collection of personal narratives, get feedback + iterate. won $2000 from hack the north 2025."
+                url={siteLinks.projects.myToolbox}
               />
               <Work
-                header="leekcake"
-                desc="Directly commit leetcode submittions to your github repo (chrome extension!)"
-                url="https://github.com/adabingw/leekcake"
+                header="cookify"
+                desc="a full-stack web app for recipes and cooklists. 10,000 recipes, natural language search, and ranking formula."
+                url={siteLinks.projects.cookify}
               />
               <Work
-                header="iiwii"
-                desc="Middle class text editor (like Notion??)"
-                url="https://github.com/adabingw/iiwii"
+                header="wish list"
+                desc="an aesthetic real-time collaborative wishlist built with tanstack start and convex. drag-and-drop organization, type-safe routing, and private gift reservations."
+                url={siteLinks.projects.wishList}
               />
               <Work
-                header="lyrr"
-                desc="Genereate lyrics from your favourite artists (inspired by Taylor Swift lol)."
-                url="https://github.com/adabingw/lyrr"
+                header="biquadris"
+                desc="an oop tetris school project extended to have beam search algorithm and monte carlo tree search."
+                url={siteLinks.projects.biquadris}
               />
               <Work
-                header="writrr"
-                desc="Generate realistic handwriting from your own handwriting"
-                url="https://github.com/adabingw/writrr"
-              />
-              <Work
-                header="convrr"
-                desc="Unit converter made for my dad: an engineer who deals with complicated things"
-                url="https://main--famous-smakager-e6e253.netlify.app/"
+                header="weld shift"
+                desc="spreadsheet cell shifter made for my mom who works with weld data. irl use of dynamic programming! :d"
+                url={siteLinks.projects.weldShift}
               />
             </div>
           </div>
@@ -206,34 +214,53 @@ function App() {
         <div className={`section-${style} last`}>
           <div className={`section-left-${style}`}>
             <div className="header">
-              <span className="head">Chapter 3. </span>Me!
+              <span className="head">Snapshot 03 / </span>Self
             </div>
-            <div className="center">Here lies my hobbies, of which I surprisingly do have some...</div>
+            <div className="center">you've reached your daily screen time...</div>
           </div>
           <div>
             <div className="work_div">
               <Work
-                header="Reading"
-                desc="Harvester of emotions...I like diving headfirst into books dealing with the human condition and small bits of fantasy (optional). Historical fiction are gems to me, so are characters. Think: The Lies of Locke Lamora, Demon Copperhead, The Kingdoms. I will read anything you recommend though, even genres I don't like (because I believe in meaningful conversations)."
+                header="carnivore"
+                desc="aside from the corner store fruits and farmers market veggies in my well-rounded diet, i love cooking ... meat! have mastered searing the perfect medium-rare on a cast iron. next up is roasting the perfect rotisserie chicken from scratch. apologies to the vegans."
               />
               <Work
-                header="Anime-ing (and Manga)"
-                desc="I like dumb fun and epic sagas. Sometimes throw in a romance or a scifi that scratches my itch like nothing else. Tops: Vinland Saga, Nichijou, Gintama, Hyouka, Kimi ni Todoke, Psycho Pass."
+                header="biking"
+                desc="i grew up with summers biking, did a year of project earth in middle school and the city bike-share was my first taste of independence and mobility in adolescence. i absolutely love bike culture and infrastructure."
               />
               <Work
-                header="Painting"
-                desc="Probably my longest hobby that I actually used to take classes for (???). Of all the mediums I played with, nothing speaks to me the most like oil painting. But...oil paint is messay and expensive, so now I resort to acrylics to soothe my mind during tough times in school. Follow the link to see what I've created :D"
-                url="https://photos.app.goo.gl/yiB8QNRMGYo93VcJA"
+                header="making videos"
+                desc="i like making videos. here is my yt channel from college: currently on sabbatical but always plotting the next stories to tell."
               />
               <Work
-                header="Fridge magnets"
+                header="scrapbooking"
                 position=""
-                desc="I've started collecting fridge magnets of cities I visit so that, in the future, I could look at a magnet and tell a story..."
+                desc="an analog average human hobby"
               />
             </div>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function TerminalHeader({ visibleCount }) {
+  return (
+    <div className="terminal-header" aria-label="Portfolio terminal intro">
+      {pageHeader.map((line, index) => (
+        <div
+          className={`terminal-line ${index < visibleCount ? "visible" : ""}`}
+          key={line}
+        >
+          {index < visibleCount ? line : ""}
+          {index === visibleCount - 1 && visibleCount < pageHeader.length && (
+            <span className="terminal-cursor" aria-hidden="true">
+              _
+            </span>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

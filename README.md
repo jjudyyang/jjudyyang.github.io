@@ -1,6 +1,6 @@
-# Final Year Portfolio Judy
+# Judy Yang Portfolio
 
-Light project made with Vite + React
+A personal portfolio built with Vite + React.
 
 ## Run locally
 
@@ -21,4 +21,3 @@ npm run dev
 ```bash
 pnpm build
 ```
-

@@ -155,6 +155,38 @@ a {
   letter-spacing: 1px;
 }
 
+.terminal-header {
+  min-height: 116px;
+  margin-bottom: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 25px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.terminal-line {
+  min-height: 36px;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 240ms ease;
+}
+
+.terminal-line.visible {
+  opacity: 1;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .section-wide {
   display: flex;
   flex-direction: row;

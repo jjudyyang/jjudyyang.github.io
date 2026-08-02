@@ -18,7 +18,7 @@ function Work(props) {
   return (
     <div className={`work-${style}`}>
       {url ? (
-        <a href={url} className="work_url">
+        <a href={url} className="work_url" target="_blank" rel="noreferrer">
           <div className="work_header">{header}</div>
         </a>
       ) : (
