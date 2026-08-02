@@ -134,6 +134,20 @@ a {
   flex-wrap: wrap;
 }
 
+.section-narrow .work_div {
+  width: 100%;
+  max-width: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 28px;
+}
+
+.section-narrow .work-narrow {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 18px 0;
+}
+
 .links {
   margin-right: 18px;
   font-size: 16px;
@@ -214,7 +228,7 @@ a {
 .section-left-narrow {
   display: flex;
   flex-direction: column;
-  width: 75vw;
+  width: 100%;
 }
 
 li {
