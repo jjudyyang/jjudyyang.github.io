@@ -1,13 +1,8 @@
-# Ada Portfolio Recreation
+# Final Year Portfolio Judy
 
-A Vite + React recreation of Ada Wang's public portfolio source. This version keeps the structure and styling close to the original repo while removing the animated background:
+Light project made with Vite + React
 
-- chaptered intro, Experience, Projects, and Me sections
-- original-looking text links and work tiles
-- original light/dark display toggle
-- copied source CSS for the layout
-
-## Run
+## Run locally
 
 ```bash
 pnpm install
@@ -21,14 +16,9 @@ npm install
 npm run dev
 ```
 
-## Customize
-
-Edit `src/App.jsx` to replace the intro copy, links, experience, projects, and hobbies.
-
 ## Build
 
 ```bash
 pnpm build
 ```
 
-The production files will be written to `dist/`.
